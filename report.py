@@ -6,10 +6,15 @@ from reportdb import get_report
 from reporthelper import beautify
 
 
-REPORTS = [{'title': 'Three Most Popular Articles', 'query': 'SELECT article, views from articles_views limit 3;'},
+REPORTS = [{'title': 'Three Most Popular Articles',
+            'query': 'SELECT article, views from articles_views limit 3;'},
            {'title': 'Three Most Popular Article Authors',
-               'query': 'SELECT a.name, SUM(av.views) FROM authors a JOIN articles_views av ON a.id = av.author_id GROUP BY a.id;'},
-           {'title': 'Days where more than 1 percent error occured', 'query': 'SELECT to_char(date, \'Mon DD, YYYY\'), ROUND(error_percent,2) FROM day_errors WHERE error_percent > 1.0;'}]
+               'query': """SELECT a.name, SUM(av.views) FROM authors a
+               JOIN articles_views av
+               ON a.id = av.author_id GROUP BY a.id;"""},
+           {'title': 'Days where more than 1 percent error occured',
+            'query': """SELECT to_char(date, \'Mon DD, YYYY\'), ROUND(error_percent,2)
+            FROM day_errors WHERE error_percent > 1.0;"""}]
 
 
 def run_report():
