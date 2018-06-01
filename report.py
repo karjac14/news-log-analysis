@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 #
 # A script that generate log REPORTS.
 
@@ -19,12 +19,17 @@ REPORTS = [{'title': 'Three Most Popular Articles',
 
 def run_report():
 
+    report_text = ''
+
     for index, val in enumerate(REPORTS):
         query = val['query']
         results = get_report(query)
         readable_results = beautify(index, results)
-        print (val['title'] + ':')
-        print (readable_results)
+        report_text += (val['title'] + ': \n')
+        report_text += (readable_results)
 
+    r = open("report.txt","w+")
+    r.write(report_text)
+    r.close()
 
 run_report()

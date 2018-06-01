@@ -5,13 +5,26 @@ This project queries database logs and generates user logs as per defined criter
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-Programming Language:
+#### Programming Language:
 
-[Python 3](https://www.python.org/) - Tested on ver. 3.5.2
+[Python](https://www.python.org/) - Tested on ver. 3.5.2
+
+#### Virtual Machine
+
+Download and Install:
+
+[Virtual Box](https://www.virtualbox.org/wiki/Download_Old_Builds_5_1)
+[Vagrant](https://www.vagrantup.com/downloads.html)
+
+Download and unzip the configuration package [VM Config](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/April/5acfbfa3_fsnd-virtual-machine/fsnd-virtual-machine.zip) prepared by Udacity. Inside the `vagrant` subdirectory, along with other starter project, clone this repository. On terminal, at the same subdirectory, run `vagrant up`, then `vagrant ssh`.
+
+Download and unzip the [data](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) here to the `vagrant` subdirectory. Run `psql -d news -f newsdata.sql`. This will connect and setup the database server.
+
+#### Create Views
 
 This project require the following database views to be created before running the script:
 
@@ -33,7 +46,7 @@ CREATE VIEW day_errors (date, error, no_error, error_percent) AS SELECT sub.day,
 On terminal, run:  
 
 ````
-python3 report.py
+python report.py
 ````
 
 ## Contributing
@@ -44,3 +57,7 @@ Please fork this forked repo, and make a PR.
 ## Note
 
 SQL file ignored in this repo
+
+## Acknowledgements
+
+Udacity
